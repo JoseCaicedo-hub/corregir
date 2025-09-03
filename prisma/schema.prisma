@@ -24,6 +24,7 @@ model Product {
 
   orderProducts OrderProduct[]
   cartProducts  CartProduct[]
+  urlImage      String?
 }
 
 model Order {
