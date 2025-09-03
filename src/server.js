@@ -8,7 +8,13 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: "*", // Cambia esto por la URL de tu frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  }
+)); // Permite peticiones desde otros orígenes (ej: frontend)
 app.use(express.json()); // Permite recibir JSON desde el frontend
  // Permite peticiones desde otros orígenes (ej: frontend)
 app.use("/api", routes); // todas las rutas están bajo /api
